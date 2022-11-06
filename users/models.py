@@ -18,7 +18,7 @@ class User(AbstractUser):
     )
 
     bio = models.TextField(null=True, blank=True)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     updated_at = models.DateTimeField(auto_now=True)
 
