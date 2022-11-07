@@ -8,7 +8,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
-    image = models.URLField()
+    image = models.URLField(null=True, blank=True)
 
     user = models.ForeignKey(
         "users.User",

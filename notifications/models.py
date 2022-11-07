@@ -15,6 +15,7 @@ class Notification(models.Model):
         choices=NotificationType.choices,
     )
     created_at = models.DateTimeField(auto_now_add=True)
+    is_readed = models.BooleanField(default=False)
 
     post = models.ForeignKey(
         "posts.Post",
