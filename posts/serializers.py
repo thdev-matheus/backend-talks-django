@@ -1,16 +1,12 @@
 from rest_framework import serializers
 
-from comments.serializers import CommentSerializer
-from likes.serializers import LikeSerializer
-from users.serializers import UserSerializer
+from users.serializers import UserNoDetailSerializer
 
 from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-    comments = CommentSerializer(many=True, read_only=True)
-    likes = LikeSerializer(many=True, read_only=True)
+    user = UserNoDetailSerializer(read_only=True)
 
     class Meta:
         model = Post
@@ -32,3 +28,4 @@ class PostSerializer(serializers.ModelSerializer):
             "comments",
             "likes",
         ]
+        depth = 1

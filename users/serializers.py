@@ -43,3 +43,20 @@ class UserSerializer(serializers.ModelSerializer):
         instance = model.objects.create_user(**validated_data)
 
         return instance
+
+
+class UserNoDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+
+        fields = [
+            "id",
+            "username",
+            "profile_image",
+        ]
+
+        read_only_fields = [
+            "id",
+            "username",
+            "profile_image",
+        ]

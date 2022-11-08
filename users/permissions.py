@@ -18,10 +18,10 @@ class AdminOwnerOrReadyOnly(permissions.BasePermission):
 
 class AdminOrReadyOnly(permissions.BasePermission):
     def has_permission(self, request: views.Request, view: views.View) -> bool:
-        if request.method in permissions.SAFE_METHODS:
-            return True
-
         if not request.user.is_authenticated:
             return False
+
+        if request.method in permissions.SAFE_METHODS:
+            return True
 
         return request.user.is_superuser
