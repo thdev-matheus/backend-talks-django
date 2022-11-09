@@ -1,14 +1,12 @@
 from rest_framework import serializers
 
-from posts.serializers import PostSerializer
-from users.serializers import UserSerializer
+from users.serializers import UserNoDetailSerializer
 
 from .models import Like
 
 
-class LikeSeializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-    post = PostSerializer(read_only=True)
+class LikeSerializer(serializers.ModelSerializer):
+    user = UserNoDetailSerializer(read_only=True)
 
     class Meta:
         model = Like

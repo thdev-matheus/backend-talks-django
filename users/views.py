@@ -1,4 +1,4 @@
-from rest_framework import generics, views
+from rest_framework import generics, permissions, views
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
@@ -37,3 +37,19 @@ class UserLoginView(ObtainAuthToken):
         user_serializer = UserSerializer(user)
         token, created = Token.objects.get_or_create(user=user)
         return views.Response({"token": token.key, "user": user_serializer.data})
+
+
+class UserReactivateView(generics.UpdateAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAdminUser]
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
+    lookup_url_kwarg = "username"
+
+    def update(self, request, *args, **kwargs):
+        user = self.get_queryset().get(username=kwargs["username"])
+        user.is_active = True
+        user.save()
+
+        serializer = self.get_serializer(user)
+        return views.Response(serializer.data)

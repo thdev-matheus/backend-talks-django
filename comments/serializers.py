@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from users.serializers import UserSerializer
+from users.serializers import UserNoDetailSerializer
 
 from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = UserSerializer()
+    user = UserNoDetailSerializer(read_only=True)
 
     class Meta:
         model = Comment
@@ -27,3 +27,9 @@ class CommentSerializer(serializers.ModelSerializer):
             "user",
             "post",
         ]
+
+        extra_kwarg = {
+            "post": {
+                "write_only": True,
+            }
+        }
