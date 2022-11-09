@@ -39,6 +39,10 @@ urlpatterns = [
         include("comments.urls"),
     ),
     path(
+        "api/",
+        include("likes.urls"),
+    ),
+    path(
         "schema/",
         SpectacularAPIView.as_view(),
         name="schema",
