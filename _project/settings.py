@@ -34,6 +34,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "https://talks-pzrp.onrender.com",
+    "talks-pzrp.onrender.com",
     "http://0.0.0.0:10000",
     "100.20.92.101",
     "44.225.181.72",
