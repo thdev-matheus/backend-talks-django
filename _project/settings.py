@@ -106,12 +106,8 @@ WSGI_APPLICATION = "_project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("POSTGRES_HOST"),
-        "PORT": os.environ.get("PORT"),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 """ if os.environ.get("TEST"):
@@ -209,6 +205,6 @@ if DATABASE_URL:
         ssl_require=True,
     )
     DATABASES["default"].update(db_from_env)
-    DEBUG = False
+    DEBUG = True
 
 CORS_ALLOW_ALL_ORIGINS = True
