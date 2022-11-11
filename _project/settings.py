@@ -32,8 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # DEBUG = True
 DEBUG = False
 
-# ALLOWED_HOSTS = ["url_do_app_no_deploy", "localhost"]
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://talks.onrender.com", "localhost"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
