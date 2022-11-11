@@ -206,6 +206,6 @@ if DATABASE_URL:
         ssl_require=True,
     )
     DATABASES["default"].update(db_from_env)
-    DEBUG = True
+    DEBUG = False
 
 CORS_ALLOW_ALL_ORIGINS = True
