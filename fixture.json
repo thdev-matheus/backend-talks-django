@@ -1,0 +1,24 @@
+[
+{
+  "model": "users.user",
+  "pk": "a89ed226-ea29-484d-aeda-bb33f1f08515",
+  "fields": {
+    "last_login": null,
+    "is_superuser": true,
+    "username": "theus",
+    "email": "",
+    "is_staff": true,
+    "date_joined": "2022-11-11T17:20:55.262Z",
+    "password": "pbkdf2_sha256$390000$EEyhZHI9WIC5SWRGOoC6O9$yo04Hw6m4c45H/se5vsLn5q9NGXphAltG6MaJYDTEKo=",
+    "first_name": "Matheus",
+    "last_name": "Vieira",
+    "birthdate": "1991-06-28",
+    "profile_image": "https://i.ibb.co/hM0XsT4/21-214439-free-high-quality-person-icon-default-profile-picture.png",
+    "bio": null,
+    "is_active": true,
+    "updated_at": "2022-11-11T17:20:55.669Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
