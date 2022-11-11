@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "https://talks.onrender.com",
+    "https://talks-pzrp.onrender.com",
     "http://0.0.0.0:10000",
     "100.20.92.101",
     "44.225.181.72",
