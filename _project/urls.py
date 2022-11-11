@@ -43,6 +43,10 @@ urlpatterns = [
         include("likes.urls"),
     ),
     path(
+        "api/",
+        include("notifications.urls"),
+    ),
+    path(
         "schema/",
         SpectacularAPIView.as_view(),
         name="schema",

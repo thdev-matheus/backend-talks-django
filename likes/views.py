@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics, mixins, permissions, views
 from rest_framework.authentication import TokenAuthentication
 
+from notifications.models import Notification
 from posts.models import Post
 
 from .models import Like
@@ -48,10 +49,30 @@ class LikesView(generics.GenericAPIView):
         )
 
     def perform_create(self, serializer, *args, **kwargs):
+        # creation of an like
         post = kwargs["post"]
         user = self.request.user
 
         serializer.save(post=post, user=user)
+
+        # creation of an notification
+        owner_user = post.user
+        launcher_user = self.request.user
+        type = "like"
+        notification_already_exists = Notification.objects.filter(
+            post=post,
+            type=type,
+            owner_user=owner_user,
+            launcher_user=launcher_user,
+        )
+
+        if not owner_user == launcher_user and not notification_already_exists:
+            Notification.objects.create(
+                type=type,
+                post=post,
+                owner_user=owner_user,
+                launcher_user=launcher_user,
+            )
 
     def delete(self, request, *args, **kwargs):
         post = get_object_or_404(Post, id=kwargs["post_id"])

@@ -32,3 +32,16 @@ class PostSerializer(serializers.ModelSerializer):
             "comments",
             "likes",
         ]
+
+
+class PostNoDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = [
+            "id",
+            "text",
+        ]
+        read_only_fields = [
+            "id",
+            "text",
+        ]

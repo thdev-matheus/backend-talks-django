@@ -7,7 +7,6 @@ from django.db import models
 class User(AbstractUser):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
 
-    email = models.EmailField(max_length=100, unique=True)
     password = models.CharField(max_length=100)
 
     first_name = models.CharField(max_length=50)
@@ -23,7 +22,6 @@ class User(AbstractUser):
     updated_at = models.DateTimeField(auto_now=True)
 
     REQUIRED_FIELDS = [
-        "email",
         "password",
         "first_name",
         "last_name",
