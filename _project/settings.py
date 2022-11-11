@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # DEBUG = True
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://talks.onrender.com", "localhost"]
+ALLOWED_HOSTS = ["https://talks.onrender.com", "http://0.0.0.0:10000"]
 # ALLOWED_HOSTS = []
 
 
