@@ -13,7 +13,7 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: talks1
-          property: "postgres://theus:OGMmvseVAFjHq07EeSNZCvB9QbH6kpiQ@dpg-cdmr80qen0hm6jqsf9u0-a/talks1"
+          property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: WEB_CONCURRENCY
